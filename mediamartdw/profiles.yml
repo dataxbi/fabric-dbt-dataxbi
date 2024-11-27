@@ -1,11 +1,11 @@
 mediamartdw:
 
-  target: fabric-lakehouse
+  target: fabric-warehouse
 
   outputs:
-    fabric-lakehouse:
+    fabric-warehouse:
       authentication: CLI
-      database: mediamart_lakehouse
+      database: mediamart_warehouse
       driver: ODBC Driver 18 for SQL Server
       host: evxidzw3ig3uxmngewtrq53prq-55c62v3ww43uvd6ubwxecdlbze.datawarehouse.fabric.microsoft.com
       schema: dbo

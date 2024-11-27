@@ -1,16 +1,16 @@
 with productos as (
 
-    select * from {{ source('mediamartdw','raw_Productos') }}
+    select * from {{ source('MediaMart','raw_Productos') }}
 
 ),
 subcategorias as (
 
-    select * from {{ source('mediamartdw','raw_Subcategorias') }}
+    select * from {{ source('MediaMart','raw_Subcategorias') }}
 
 ),
 categorias as (
 
-    select * from {{ source('mediamartdw','raw_Categorias') }}
+    select * from {{ source('MediaMart','raw_Categorias') }}
 
 ),
 
