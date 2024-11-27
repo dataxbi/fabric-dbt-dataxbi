@@ -101,7 +101,7 @@ models:
 
 
 sources:
-  - name: MediaMart
+  - name: raw
     database: raw  
     schema: dbo
     tables:
