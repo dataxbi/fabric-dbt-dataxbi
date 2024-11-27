@@ -1,6 +1,6 @@
 with ventas as (
 
-    select * from {{ source('MediaMart','raw_Ventas') }}
+    select * from {{ source('raw','raw_Ventas') }}
 
 ),
 productos as (

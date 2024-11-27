@@ -1,6 +1,6 @@
 with vendedores as (
 
-    select * from {{ source('MediaMart','raw_Vendedores') }}
+    select * from {{ source('raw','raw_Vendedores') }}
 
 ),
 
