@@ -10,7 +10,7 @@ models:
 
 sources:
   - name: mediamartdw          
-    database: mediamartdw  
+    database: raw  
     schema: dbo
     tables:
       - name: raw_Clientes
@@ -20,3 +20,4 @@ sources:
       - name: raw_Tiendas
       - name: raw_Vendedores
       - name: raw_Ventas
+      - name: raw_Municipios

@@ -15,10 +15,10 @@ categorias as (
 ),
 
 
-renombrada as (
+combinada as (
 
 select
-    productos.[Codigo Producto] as Codigo_Producto,
+    productos.Codigo_Producto,
     productos.Producto,
     productos.Precio,
     subcategorias.Subcategoria,
@@ -41,7 +41,7 @@ select
     {{ dbt_utils.generate_surrogate_key(['Codigo_Producto'])}} as ID_Producto,
     *
 
-from renombrada
+from combinada
 
 )
 

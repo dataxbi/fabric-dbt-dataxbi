@@ -5,16 +5,16 @@ with tiendas as (
 ),
 municipios as (
 
-    select * from {{ ref('raw_Municipios') }}
+    select * from {{ source('mediamartdw','raw_Municipios') }}
 
 ),
 
 
-renombrada as (
+combinada as (
 
 select
 
-    tiendas.[Codigo Tienda] as Codigo_Tienda,
+    tiendas.Codigo_Tienda,
     tiendas.Tienda,
     municipios.CCAA,
     municipios.Provincia,
@@ -23,7 +23,7 @@ select
 from tiendas
 
 left join municipios on
-    tiendas.[Codigo Municipio] = municipios.INE5
+    tiendas.Codigo_Municipio = municipios.INE5
 
 ),
 
@@ -34,7 +34,7 @@ select
     {{ dbt_utils.generate_surrogate_key(['Codigo_Tienda'])}} as ID_Tienda,
     *
 
-from renombrada
+from combinada
 
 )
 
