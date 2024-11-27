@@ -1,17 +1,15 @@
 mediamartdw:
 
-  target: dev
+  target: fabric-sql
 
   outputs:
-    dev:
+    fabric-sql:
       type: sqlserver
       driver: ODBC Driver 18 for SQL Server
-      host: localhost
+      host: evxidzw3ig3uxmngewtrq53prq-55c62v3ww43uvd6ubwxecdlbze.database.fabric.microsoft.com
       port: 1433
-      user: dbt
-      password: Diana.Nelson
-      database: MediaMartDW
+      database: mediamart_sql-fe7666fb-74f5-469e-b21c-69f05ba3dfca
       schema: dbo
-      encrypt: false
       threads: 1
+      authentication: CLI
 

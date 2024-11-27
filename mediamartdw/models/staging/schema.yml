@@ -101,8 +101,8 @@ models:
 
 
 sources:
-  - name: MediaMartDW          
-    database: MediaMartDW  
+  - name: fabric-sql          
+    database: ""
     schema: dbo
     tables:
       - name: raw_Categorias
@@ -120,7 +120,7 @@ sources:
       - name: raw_Clientes
         description: "Tabla raw de clientes"
         columns:
-          - name: "[Codigo Cliente]"
+          - name: Codigo_Cliente
             description: "Código único del cliente"
             data_tests:
               - unique
@@ -134,7 +134,7 @@ sources:
       - name: raw_Productos
         description: "Tabla raw de productos"
         columns:
-          - name: Codigo Producto
+          - name: Codigo_Producto
             description: "Código único del producto"
           - name: Producto
             description: "Nombre del producto"
@@ -156,7 +156,7 @@ sources:
       - name: raw_Tiendas
         description: "Tabla raw de tiendas"
         columns:
-          - name: Codigo Tienda
+          - name: Codigo_Tienda
             description: "Código único de la tienda"
           - name: Tienda
             description: "Nombre de la tienda"
@@ -166,7 +166,7 @@ sources:
       - name: raw_Vendedores
         description: "Tabla raw de vendedores"
         columns:
-          - name: Codigo Vendedor
+          - name: Codigo_Vendedor
             description: "Código único del vendedor"
           - name: Vendedor
             description: "Nombre del vendedor"
@@ -178,23 +178,23 @@ sources:
       - name: raw_Ventas
         description: "Tabla raw de ventas"
         columns:
-          - name: Fecha Pedido
+          - name: Fecha_Pedido
             description: "Fecha en la que se realizó el pedido"
-          - name: Fecha Envio
+          - name: Fecha_Envio
             description: "Fecha en la que se envió el pedido"
-          - name: Fecha Factura
+          - name: Fecha_Factura
             description: "Fecha en la que se generó la factura"
-          - name: Codigo Cliente
+          - name: Codigo_Cliente
             description: "Código único del cliente"
-          - name: Codigo Tienda
+          - name: Codigo_Tienda
             description: "Código único de la tienda"
-          - name: Codigo Vendedor
+          - name: Codigo_Vendedor
             description: "Código único del vendedor"
-          - name: Codigo Producto
+          - name: Codigo_Producto
             description: "Código único del producto"
-          - name: Precio Unitario
+          - name: Precio_Unitario
             description: "Precio unitario del producto"
-          - name: Coste Unitario
+          - name: Coste_Unitario
             description: "Coste unitario del producto"
           - name: Cantidad
             description: "Cantidad de productos vendidos"

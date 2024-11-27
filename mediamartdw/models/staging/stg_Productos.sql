@@ -1,24 +1,24 @@
 with productos as (
 
-    select * from {{ source('MediaMartDW','raw_Productos') }}
+    select * from {{ source('fabric-sql','raw_Productos') }}
 
 ),
 subcategorias as (
 
-    select * from {{ source('MediaMartDW','raw_Subcategorias') }}
+    select * from {{ source('fabric-sql','raw_Subcategorias') }}
 
 ),
 categorias as (
 
-    select * from {{ source('MediaMartDW','raw_Categorias') }}
+    select * from {{ source('fabric-sql','raw_Categorias') }}
 
 ),
 
 
-renombrada as (
+combinada as (
 
 select
-    productos.[Codigo Producto] as Codigo_Producto,
+    productos.Codigo_Producto,
     productos.Producto,
     productos.Precio,
     subcategorias.Subcategoria,
@@ -41,7 +41,7 @@ select
     {{ dbt_utils.generate_surrogate_key(['Codigo_Producto'])}} as ID_Producto,
     *
 
-from renombrada
+from combinada
 
 )
 

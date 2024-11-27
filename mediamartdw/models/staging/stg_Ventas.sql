@@ -1,6 +1,6 @@
 with ventas as (
 
-    select * from {{ source('MediaMartDW','raw_Ventas') }}
+    select * from {{ source('fabric-sql','raw_Ventas') }}
 
 ),
 productos as (
@@ -28,30 +28,30 @@ vendedores as (
 final as (
 
 select
-    ventas.[Fecha Pedido] as Fecha_Pedido,
-    ventas.[Fecha Envio] as Fecha_Envio,
-    ventas.[Fecha Factura] as Fecha_Factura,
+    ventas.Fecha_Pedido,
+    ventas.Fecha_Envio,
+    ventas.Fecha_Factura,
     productos.ID_Producto,
     clientes.ID_Cliente,
     tiendas.ID_Tienda,
     vendedores.ID_Vendedor,
-    ventas.[Precio Unitario] as Precio_Unitario,
-    ventas.[Coste Unitario] as Coste_Unitario,
+    ventas.Precio_Unitario,
+    ventas.Coste_Unitario,
     ventas.Cantidad
 
 from ventas
 
 left join productos on
-    ventas.[Codigo Producto] = productos.Codigo_Producto
+    ventas.Codigo_Producto = productos.Codigo_Producto
 
 left join clientes on
-    ventas.[Codigo Cliente] = clientes.Codigo_Cliente
+    ventas.Codigo_Cliente = clientes.Codigo_Cliente
 
 left join tiendas on
-    ventas.[Codigo Tienda] = tiendas.Codigo_Tienda
+    ventas.Codigo_Tienda = tiendas.Codigo_Tienda
 
 left join vendedores on
-    ventas.[Codigo Vendedor] = vendedores.Codigo_Vendedor
+    ventas.Codigo_Vendedor = vendedores.Codigo_Vendedor
 
 )
 

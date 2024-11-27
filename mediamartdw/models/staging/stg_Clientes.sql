@@ -1,17 +1,6 @@
 with clientes as (
 
-    select * from {{ source('MediaMartDW','raw_Clientes') }}
-
-),
-
-
-renombrada as (
-
-select
-    [Codigo Cliente] as Codigo_Cliente,
-    Cliente,
-    Edad
-from clientes
+    select * from {{ source('fabric-sql','raw_Clientes') }}
 
 ),
 
@@ -21,7 +10,7 @@ final as (
 select
     {{ dbt_utils.generate_surrogate_key(['Codigo_Cliente'])}} as ID_Cliente,
     *
-from renombrada
+from clientes
 
 
 )
