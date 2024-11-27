@@ -1,11 +1,11 @@
 with tiendas as (
 
-    select * from {{ source('mediamartdw','raw_Tiendas') }}
+    select * from {{ source('MediaMartDW','raw_Tiendas') }}
 
 ),
 municipios as (
 
-    select * from {{ source('mediamartdw','raw_Municipios') }}
+    select * from {{ source('MediaMartDW','raw_Municipios') }}
 
 ),
 
