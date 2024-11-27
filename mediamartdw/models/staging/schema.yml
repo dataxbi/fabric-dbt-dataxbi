@@ -120,7 +120,7 @@ sources:
       - name: raw_Clientes
         description: "Tabla raw de clientes"
         columns:
-          - name: Codigo Cliente
+          - name: "[Codigo Cliente]"
             description: "Código único del cliente"
             data_tests:
               - unique
