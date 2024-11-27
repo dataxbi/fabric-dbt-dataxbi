@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_Clientes
+  - name: stg_Productos
+  - name: stg_Tiendas
+  - name: stg_Vendedores
+  - name: stg_Ventas
+
+
+sources:
+  - name: mediamartdw          
+    database: mediamartdw  
+    schema: dbo
+    tables:
+      - name: raw_Clientes
+      - name: raw_Productos
+      - name: raw_Categorias
+      - name: raw_Subcategorias
+      - name: raw_Tiendas
+      - name: raw_Vendedores
+      - name: raw_Ventas

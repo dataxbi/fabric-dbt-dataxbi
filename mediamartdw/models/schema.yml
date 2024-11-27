@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: Clientes
+  - name: Productos
+  - name: Tiendas
+  - name: Vendedores
+  - name: Ventas
