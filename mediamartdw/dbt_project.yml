@@ -31,4 +31,4 @@ models:
     materialized: view
     
     staging:
-      materialized: table
+      materialized: view
