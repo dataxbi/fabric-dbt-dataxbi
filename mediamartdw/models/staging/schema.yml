@@ -1,22 +1,176 @@
 version: 2
 
 models:
-  - name: stg_Clientes
-  - name: stg_Productos
-  - name: stg_Tiendas
-  - name: stg_Vendedores
-  - name: stg_Ventas
+      - name: stg_Clientes
+        description: "Tabla staging de clientes"
+        columns:
+          - name: ID_Cliente
+            description: "Identificador del cliente"
+          - name: Codigo_Cliente
+            description: "Código único del cliente"
+          - name: Cliente
+            description: "Nombre del cliente"
+          - name: Edad
+            description: "Edad del cliente"
+
+      - name: stg_Productos
+        description: "Tabla staging de productos"
+        columns:
+          - name: ID_Producto
+            description: "Identificador del producto"
+          - name: Codigo_Producto
+            description: "Código único del producto (EAN)"
+          - name: Producto
+            description: "Nombre del producto"
+          - name: Precio
+            description: "Precio del producto"
+          - name: Subcategoria
+            description: "Subcategoría del producto"
+          - name: Categoria
+            description: "Categoría del producto"
+
+      - name: stg_Vendedores
+        description: "Tabla staging de vendedores"
+        columns:
+          - name: ID_Vendedor
+            description: "Identificador del vendedor"
+          - name: Codigo_Vendedor
+            description: "Código único del vendedor"
+          - name: Vendedor
+            description: "Nombre del vendedor"
+          - name: Foto
+            description: "URL de la foto del vendedor"
+          - name: Territorio
+            description: "Territorio asignado al vendedor"
+
+      - name: stg_Tiendas
+        description: "Tabla staging de tiendas"
+        columns:
+          - name: ID_Tienda
+            description: "Identificador de la tienda"
+          - name: Codigo_Tienda
+            description: "Código único de la tienda"
+          - name: Tienda
+            description: "Nombre de la tienda"
+          - name: CCAA
+            description: "Comunidad Autónoma donde se encuentra la tienda"
+          - name: Provincia
+            description: "Provincia de la tienda"
+          - name: Municipio
+            description: "Municipio de la tienda"
+
+      - name: stg_Ventas
+        description: "Tabla staging de ventas"
+        columns:
+          - name: Fecha_Pedido
+            description: "Fecha en que se realizó el pedido"
+          - name: Fecha_Envio
+            description: "Fecha de envío del pedido"
+          - name: Fecha_Factura
+            description: "Fecha de facturación del pedido"
+          - name: ID_Producto
+            description: "Identificador del producto vendido"
+          - name: ID_Cliente
+            description: "Identificador del cliente que realizó la compra"
+          - name: ID_Tienda
+            description: "Identificador de la tienda donde se realizó la venta"
+          - name: ID_Vendedor
+            description: "Identificador del vendedor asociado"
+          - name: Precio_Unitario
+            description: "Precio unitario del producto"
+          - name: Coste_Unitario
+            description: "Coste unitario del producto"
+          - name: Cantidad
+            description: "Cantidad de productos vendidos"
 
 
 sources:
-  - name: mediamartdw          
-    database: mediamartdw  
+  - name: MediaMartDW          
+    database: MediaMartDW  
     schema: dbo
     tables:
-      - name: raw_Clientes
-      - name: raw_Productos
       - name: raw_Categorias
+        description: "Tabla raw de categorías"
+        columns:
+          - name: CategoriaID
+            description: "Identificador único de la categoría"
+          - name: Categoria
+            description: "Nombre de la categoría"
+
+      - name: raw_Clientes
+        description: "Tabla raw de clientes"
+        columns:
+          - name: Codigo Cliente
+            description: "Código único del cliente"
+          - name: Cliente
+            description: "Nombre del cliente"
+          - name: Edad
+            description: "Edad del cliente"
+
+      - name: raw_Productos
+        description: "Tabla raw de productos"
+        columns:
+          - name: Codigo Producto
+            description: "Código único del producto"
+          - name: Producto
+            description: "Nombre del producto"
+          - name: SubcategoriaID
+            description: "Identificador de la subcategoría"
+          - name: Precio
+            description: "Precio del producto"
+
       - name: raw_Subcategorias
+        description: "Tabla raw de subcategorías"
+        columns:
+          - name: SubcategoriaID
+            description: "Identificador de la subcategoría"
+          - name: Subcategoria
+            description: "Nombre de la subcategoría"
+          - name: CategoriaID
+            description: "Identificador de la categoría asociada"
+
       - name: raw_Tiendas
+        description: "Tabla raw de tiendas"
+        columns:
+          - name: Codigo Tienda
+            description: "Código único de la tienda"
+          - name: Tienda
+            description: "Nombre de la tienda"
+          - name: Codigo Municipio
+            description: "Código del municipio asociado"
+
       - name: raw_Vendedores
+        description: "Tabla raw de vendedores"
+        columns:
+          - name: Codigo Vendedor
+            description: "Código único del vendedor"
+          - name: Vendedor
+            description: "Nombre del vendedor"
+          - name: Foto
+            description: "URL de la foto del vendedor"
+          - name: Territorio
+            description: "Territorio asignado al vendedor"
+
       - name: raw_Ventas
+        description: "Tabla raw de ventas"
+        columns:
+          - name: Fecha Pedido
+            description: "Fecha en la que se realizó el pedido"
+          - name: Fecha Envio
+            description: "Fecha en la que se envió el pedido"
+          - name: Fecha Factura
+            description: "Fecha en la que se generó la factura"
+          - name: Codigo Cliente
+            description: "Código único del cliente"
+          - name: Codigo Tienda
+            description: "Código único de la tienda"
+          - name: Codigo Vendedor
+            description: "Código único del vendedor"
+          - name: Codigo Producto
+            description: "Código único del producto"
+          - name: Precio Unitario
+            description: "Precio unitario del producto"
+          - name: Coste Unitario
+            description: "Coste unitario del producto"
+          - name: Cantidad
+            description: "Cantidad de productos vendidos"
