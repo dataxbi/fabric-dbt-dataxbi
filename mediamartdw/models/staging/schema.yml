@@ -6,8 +6,16 @@ models:
         columns:
           - name: ID_Cliente
             description: "Identificador del cliente"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Codigo_Cliente
             description: "Código único del cliente"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Cliente
             description: "Nombre del cliente"
           - name: Edad
@@ -18,8 +26,16 @@ models:
         columns:
           - name: ID_Producto
             description: "Identificador del producto"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Codigo_Producto
             description: "Código único del producto (EAN)"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Producto
             description: "Nombre del producto"
           - name: Precio
@@ -94,6 +110,10 @@ sources:
         columns:
           - name: CategoriaID
             description: "Identificador único de la categoría"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Categoria
             description: "Nombre de la categoría"
 
@@ -102,6 +122,10 @@ sources:
         columns:
           - name: Codigo Cliente
             description: "Código único del cliente"
+            data_tests:
+              - unique
+              - not_null        
+
           - name: Cliente
             description: "Nombre del cliente"
           - name: Edad
@@ -174,3 +198,6 @@ sources:
             description: "Coste unitario del producto"
           - name: Cantidad
             description: "Cantidad de productos vendidos"
+            data_tests:
+              - not_null        
+
