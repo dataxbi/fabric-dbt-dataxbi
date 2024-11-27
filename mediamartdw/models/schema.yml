@@ -6,8 +6,15 @@ models:
     columns:
       - name: ID_Cliente
         description: "Identificador del cliente"
+        data_tests:
+          - unique
+          - not_null        
+
       - name: Cliente
         description: "Nombre del cliente"
+        data_tests:
+          - not_null        
+
       - name: Edad
         description: "Edad del cliente"
 
@@ -16,6 +23,10 @@ models:
     columns:
       - name: ID_Producto
         description: "Identificador del producto"
+        data_tests:
+          - unique
+          - not_null        
+
       - name: Producto
         description: "Nombre del producto"
       - name: Precio
@@ -30,6 +41,10 @@ models:
     columns:
       - name: ID_Vendedor
         description: "Identificador del vendedor"
+        data_tests:
+          - unique
+          - not_null        
+
       - name: Vendedor
         description: "Nombre del vendedor"
       - name: Foto
@@ -42,6 +57,10 @@ models:
     columns:
       - name: ID_Tienda
         description: "Identificador de la tienda"
+        data_tests:
+          - unique
+          - not_null        
+
       - name: Tienda
         description: "Nombre de la tienda"
       - name: CCAA
@@ -56,21 +75,46 @@ models:
     columns:
       - name: Fecha_Pedido
         description: "Fecha del pedido"
+        data_tests:
+          - not_null        
+
       - name: Fecha_Envio
         description: "Fecha de envío"
       - name: Fecha_Factura
         description: "Fecha de facturación"
       - name: ID_Producto
         description: "Identificador del producto vendido"
+        data_tests:
+          - relationships:
+              to: ref('Productos')
+              field: ID_Producto
+
       - name: ID_Cliente
         description: "Identificador del cliente"
+        data_tests:
+          - relationships:
+              to: ref('Clientes')
+              field: ID_Cliente
       - name: ID_Tienda
         description: "Identificador de la tienda"
+        data_tests:
+          - relationships:
+              to: ref('Tiendas')
+              field: ID_Tienda
+
       - name: ID_Vendedor
         description: "Identificador del vendedor"
+        data_tests:
+          - relationships:
+              to: ref('Vendedores')
+              field: ID_Vendedor
+
       - name: Precio_Unitario
         description: "Precio unitario del producto"
       - name: Coste_Unitario
         description: "Coste unitario del producto"
       - name: Cantidad
         description: "Cantidad vendida"
+        data_tests:
+          - not_null        
+
