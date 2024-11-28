@@ -5,13 +5,15 @@ mediamartdw:
   outputs:
     dev:
       type: sqlserver
+
       driver: ODBC Driver 18 for SQL Server
+
       host: localhost
       port: 1433
-      user: dbt
-      password: Diana.Nelson
       database: MediaMartDW
       schema: dbo
+
+      windows_login: True
+
       encrypt: false
-      threads: 1
 
