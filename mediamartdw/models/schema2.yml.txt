@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: Clientes
+    description: "Vista final de clientes"
+    columns:
+      - name: ID_Cliente
+        description: "Identificador del cliente"
+
+      - name: Cliente
+        description: "Nombre del cliente"
+
+      - name: Edad
+        description: "Edad del cliente"
+
+  - name: Productos
+    description: "Vista final de productos"
+    columns:
+      - name: ID_Producto
+        description: "Identificador del producto"
+      - name: Producto
+        description: "Nombre del producto"
+      - name: Precio
+        description: "Precio del producto"
+      - name: Subcategoria
+        description: "Subcategoría del producto"
+      - name: Categoria
+        description: "Categoría del producto"
+
+  - name: Vendedores
+    description: "Vista final de vendedores"
+    columns:
+      - name: ID_Vendedor
+        description: "Identificador del vendedor"
+      - name: Vendedor
+        description: "Nombre del vendedor"
+      - name: Foto
+        description: "URL de la foto del vendedor"
+      - name: Territorio
+        description: "Territorio asignado al vendedor"
+
+  - name: Tiendas
+    description: "Vista final de tiendas"
+    columns:
+      - name: ID_Tienda
+        description: "Identificador de la tienda"
+
+      - name: Tienda
+        description: "Nombre de la tienda"
+      - name: CCAA
+        description: "Comunidad Autónoma de la tienda"
+      - name: Provincia
+        description: "Provincia donde se encuentra la tienda"
+      - name: Municipio
+        description: "Municipio donde se encuentra la tienda"
+
+  - name: Ventas
+    description: "Vista final de ventas"
+    columns:
+      - name: Fecha_Pedido
+        description: "Fecha del pedido"
+
+      - name: Fecha_Envio
+        description: "Fecha de envío"
+      - name: Fecha_Factura
+        description: "Fecha de facturación"
+      - name: ID_Producto
+        description: "Identificador del producto vendido"
+
+      - name: ID_Cliente
+        description: "Identificador del cliente"
+
+      - name: ID_Tienda
+        description: "Identificador de la tienda"
+
+      - name: ID_Vendedor
+        description: "Identificador del vendedor"
+
+      - name: Precio_Unitario
+        description: "Precio unitario del producto"
+      - name: Coste_Unitario
+        description: "Coste unitario del producto"
+      - name: Cantidad
+        description: "Cantidad vendida"
+
